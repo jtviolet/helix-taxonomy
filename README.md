@@ -34,6 +34,26 @@ Unnested, would become:
 ```
 Once you have unnested your log, you are ready to make your JSON log taxonomically compliant. Move onto the Helix Taxonomy page to match your log keys to the most appropriate Helix Taxonomy key.
 
+# Required Taxonomy Objects
+
+## class
+Allows Helix to directly classify all logs coming from a service, product, or vendor. This classification name will me the primary means in which Helix differentiates your logs from others. 
+
+## metaclass
+Permits different classes to be lumped into general catagorizes/metaclass. Multiple metaclasses may be used within a JSON array. Most popular uses are 'firewall', 'http_proxy', or 'ids'. If properly used metaclass can greatly reduce the number of Helix detection rules by broadening the alert query.
+
+```
+{
+  "class" : "myfirewall",
+  "metaclass" : "firewall"
+ }
+ 
+ {
+  "class" : "checkpoint",
+  "metaclass" : ["firewall","http_proxy"]
+ }
+ ```
+
 # Helix Taxonomy Objects
 Below you will find all objects in the Helix Taxonomy, their metadata, and examples of that log type. Each Helix Taxonomy object will have an associated data type, data format, short description, and examples of what related fields might look like.
 
